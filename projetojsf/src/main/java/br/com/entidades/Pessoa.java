@@ -22,7 +22,7 @@ import javax.persistence.Transient;
 public class Pessoa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
+	//teste para toke 06/09/2023
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
