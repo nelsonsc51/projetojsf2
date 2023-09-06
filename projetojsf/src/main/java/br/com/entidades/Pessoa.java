@@ -39,7 +39,6 @@ public class Pessoa implements Serializable {
 	
 	private Boolean ativo;
 	
-	@javax.validation.constraints.NotEmpty(message = "informe login")
 	private String login;
 
 	private String senha;
