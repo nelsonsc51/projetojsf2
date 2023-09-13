@@ -38,10 +38,8 @@
 			<h:inputFile id="foto" value="#{pessoaBean.arquivoFoto}" ></h:inputFile>
 
 			<h:outputLabel value="Nome" />
-			<h:inputText value="#{pessoaBean.pessoa.nome}" 
-			required="true" requiredMessage="Informe o nome do Usuário" pt:placeholder = "Informe o nome do usuário"
-			validatorMessage="Nome tem que ter no mínimo 2 letras">
-			<f:validateLength minimum="2" maximum="10"/>
+			<h:inputText value="#{pessoaBean.pessoa.nome}" valueChangeListener="#{pessoaBean.mudancaValor}"
+			required="true" requiredMessage="Informe o nome do Usuário" pt:placeholder = "Informe o nome do usuário">
 			</h:inputText>
 			
 			
@@ -161,7 +159,7 @@
 					<f:ajax execute="botaoNovo" render="@form"/>
 				</h:commandButton>
 				
-				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" image="/resources/img/salvar.jpg" title="salvar" />
+				<h:commandButton value="Salvar"  action="#{pessoaBean.salvar}" image="/resources/img/salvar.jpg" title="salvar" />
 				<h:commandButton value="remove" action="#{pessoaBean.remove}" image="/resources/img/delete.jpg"  title="Excluir" 
 				rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}" /> 
 				<h:commandButton value="limpar" action="#{pessoaBean.limpar}" image="/resources/img/limpar.jpg" title="Limpar">

@@ -22,6 +22,7 @@ import javax.faces.component.html.HtmlSelectOneMenu;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -165,6 +166,7 @@ public class PessoaBean  {
 		
 		return "";
 	}
+	
 	
 	private void mostrarmsg(String msg) {
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -318,29 +320,6 @@ public class PessoaBean  {
 			}
 		
 		
-//		}
-		
-		
-		
-		/*
-			if(estado != null) {
-				pessoa.setEstados(estado);
-				
-				List<Cidades> cidades = JPAUtil.getEntityManager()
-						.createQuery("from Cidades where estados.id = "
-						+estado.getId()).getResultList();
-				
-				List<SelectItem> selectItemsCidade = new ArrayList<SelectItem>();
-				
-				for (Cidades cidade : cidades) {
-					selectItemsCidade.add(new  SelectItem(cidade, cidade.getNome()));
-				}
-				
-				setCidades(selectItemsCidade);
-				
-			}
-			*/
-		
 	}
 	
 	public void editar() {
@@ -450,6 +429,11 @@ public class PessoaBean  {
 		FacesContext.getCurrentInstance().responseComplete();
 		
 	
+	}
+	
+	public void mudancaValor(ValueChangeEvent evento) {
+		System.out.println("Valor antigo: "+evento.getOldValue());
+		System.out.println("Valor novo: "+evento.getNewValue());
 	}
 	
 }
