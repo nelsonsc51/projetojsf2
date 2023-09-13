@@ -56,6 +56,7 @@ public class Pessoa implements Serializable {
 	
 	private Integer[] linguagens;
 	
+
 	private String cep;
 	
 	private String logradouro;

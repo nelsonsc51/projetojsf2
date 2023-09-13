@@ -27,6 +27,7 @@ public class Lancamento implements Serializable{
 	private String empresaDestino;
 	
 	
+	
 	@ManyToOne(optional = false)
 	@org.hibernate.annotations.ForeignKey(name ="usuario_fk")
 	private Pessoa usuario;

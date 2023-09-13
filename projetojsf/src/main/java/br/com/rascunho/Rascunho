@@ -133,3 +133,29 @@ actionListener vai até o servidor e volta
 				nome
 				<f:param name="fileDownloadId" value="#{pessoa.id}"/>
 				</h:commandLink>
+				
+
+PERSISTENCE.XML
+<!-- mínimo de conexões ou portas disponíveis, no caso 5 portas 06/09/2023 Mod27.49 -->
+			<property name="hibernate.c3p0.min_size" value="5" />
+			
+			<!-- máximo de conexões ou portas disponíveis, no 100 portas 06/09/2023 Mod27.49-->
+			<property name="hibernate.c3p0.max_size" value="100" />
+			
+			<!-- o números de segundos no value, em que uma conexão inativa é mantida no pool 06/09/2023 Mod27.49-->
+			<property name="hibernate.c3p0.timeout" value="300" />
+			
+			<!-- Número total de instruções, transações no BD e mantidas em cache  06/09/2023 Mod27.49-->
+			<property name="hibernate.c3p0.max_statements" value="50" />
+			
+			<!-- Tempo ocioso em segundos antes de uma conexão ser validada automáticamente 06/09/2023 Mod27.49-->
+			<property name="hibernate.c3p0.idle_test_period" value="120" />
+
+COMO ALTERAR TABELA PARA DELETE ON CASCADE
+ALTER TABLE lancamento
+DROP CONSTRAINT usuario_fk;
+
+ALTER TABLE lancamento
+ADD CONSTRAINT usuario_fk
+FOREIGN KEY (usuario_id) REFERENCES pessoa(id)
+ON DELETE CASCADE;
