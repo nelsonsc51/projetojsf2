@@ -1,0 +1,15 @@
+
+
+Injeção de depedências, melhorarando o consumo de memória e retira o acoplamento, tira a amaração e facilitar o código
+É uma especificação do JAVAEE = dita como que as coisas irão funcionnar
+Pode ser usado uma implementação - pode ser Spring  - mais ultilizado
+Até esse momento foi criado manualmente
+Lá no ManageBean traz a interface  que recebe uma implen=mentação criada manualmente
+ - private IDaoPessoa iDaoPessoa = new IDAoPessoaImpl();  - classe PessoaBean
+ - na interface tem o login e senha -classe IDAOPessoa(package repository)
+ - E na implementação é escrito o que o código irá fazer
+ Na classe PessoaBean, a mesma está amarrada com a implementração, 
+ Se quiser fazer alteração em uma, terá que ser feito em vários outros lugares
+ A injeção de dependências tira isso - por que se colocar  o @inject na pessoaBean, poderá ser colocado qualquer implementação
+ De vários lugares, altera somente um
+ 
