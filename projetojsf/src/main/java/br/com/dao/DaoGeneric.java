@@ -2,24 +2,30 @@ package br.com.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.com.jpautil.JPAUtil;
 
+@Named
 public class DaoGeneric<E> {
 
-	EntityManager entityManager = JPAUtil.getEntityManager();
+	@Inject
+	private EntityManager entityManager;
+	
+	
 	public void salvar(E entidade) {
-		 entityManager = JPAUtil.getEntityManager();
+		 
 		EntityTransaction entityTransaction  =  entityManager.getTransaction();
 		entityTransaction.begin();
 		
 		entityManager.persist(entidade);
 				
 		entityTransaction.commit();
-		entityManager.close();
+		
 		
 	}
 	

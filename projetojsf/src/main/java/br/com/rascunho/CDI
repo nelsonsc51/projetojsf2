@@ -23,4 +23,10 @@ Lá no ManageBean traz a interface  que recebe uma implen=mentação criada manu
  
  @RequestScoped -  a cada vez que fizer um CRUD, será gerado um entityManager automáticamente
  
+ @Named -  para toda a classe que vai usar injeção
+ 
+@Inject - com ela não precisa meis chamar um new objeto, e é automáticamente chamado a classe JPAUtil, será retirado todas
+as linhas que chamam o JPAUtil
+ 
+ entityManager.close();  - retirado para que o framework controle isso
  
