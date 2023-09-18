@@ -13,3 +13,14 @@ Lá no ManageBean traz a interface  que recebe uma implen=mentação criada manu
  A injeção de dependências tira isso - por que se colocar  o @inject na pessoaBean, poderá ser colocado qualquer implementação
  De vários lugares, altera somente um
  
+ 
+ Alterações de anotações no projeto para CDI, começando pelo núcleo que é JPAUtil
+ @ApplicationScoped - uma estância para todo o projeto
+ import do CDI - javax.enterprise.context ou  javax.enterprise.inject
+ import do JSF - javax.server.faces
+ 
+ @Produces -  para produzir e ser injetado automáticamente
+ 
+ @RequestScoped -  a cada vez que fizer um CRUD, será gerado um entityManager automáticamente
+ 
+ 
