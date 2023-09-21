@@ -6,11 +6,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.com.entidades.Cidades;
-import br.com.jpautil.JPAUtil;
 
 //Para aceitar a classe como converter é necessário a anotação abaixo:
 @FacesConverter(forClass = Cidades.class, value="cidadeConverter")
@@ -18,11 +18,13 @@ public class CidadesConverter implements Converter, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
+	private EntityManager entityManager;
+	
 	//Retorna obljeto inteiro
 		@Override
 		public Object getAsObject(FacesContext context, UIComponent component, 
 				String codigoCidade) {
-			EntityManager entityManager = JPAUtil.getEntityManager();
 			EntityTransaction entityTransaction = entityManager.getTransaction();
 			entityTransaction.begin();
 			
