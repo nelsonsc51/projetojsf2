@@ -6,6 +6,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -19,6 +20,9 @@ public class EstadoConverter implements Converter, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
+	private EntityManager entityManager;
+	
 	//Faces Context, recebe a parte de contexto do JSF
 	//UIComponent - componentes do JSF que estão sendo usado - exemplo: h:selectOneMenu
 	//Retorna objeto inteiro
@@ -26,7 +30,6 @@ public class EstadoConverter implements Converter, Serializable {
 	public Object getAsObject(FacesContext context, UIComponent component, 
 			String codigoEstado) {
 		
-		EntityManager entityManager = JPAUtil.getEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		//Startado a transação
 		entityTransaction.begin();
