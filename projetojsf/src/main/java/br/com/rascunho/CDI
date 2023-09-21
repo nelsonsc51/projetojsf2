@@ -30,3 +30,5 @@ as linhas que chamam o JPAUtil
  
  entityManager.close();  - retirado para que o framework controle isso
  
+ Correção completa do DaoGeneric
+ 
